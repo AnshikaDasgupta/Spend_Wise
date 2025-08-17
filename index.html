@@ -3,9 +3,49 @@
         <title>SpendWise</title>
     </head>
     <body>
-        <div>
-            <h1>Sigma Daily expense tracker</h1>
-        </div>
-
+        <header>
+            <h1>Daily Expense Tracker</h1>
+        </header>
+        <section class="card">
+          <h2>Add expense</h2>
+          <form>
+            <input type="date">
+            <input type="text" placeholder="item">
+            <input type="number"placeholder="Amount">
+            <select>
+                <option>food</option>
+                <option>travel</option>
+                <option>shopping</option>
+                <option>other</option>
+            </select>
+            <button type="submit">Add expense</button>
+          </form>
+        </section>
+        <section>
+            <div>
+                <h2>Expenses</h2>
+                <span>total:BDT0.00</span>
+            </div>
+            <table>
+                <thread>
+                    <tr>
+                        <th>date</th>
+                        <th>item</th>
+                        <th>category</th>
+                        <th>action</th>
+                    </tr>
+                </thread>
+                   
+                <tbody>
+                   <tr>
+                    <td>2025-08-10</td>
+                    <td>Sample Item</td>
+                    <td>BDT100</td>
+                    <td>food</td>
+                    <td><button>Delete</button></td>
+                   </tr>
+                </tbody>
+            </table>
+        </section>
     </body>
 </html>
