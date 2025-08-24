@@ -10,15 +10,15 @@
         </header>
         <section class="bg-white shadow-2xl rounded-2xl p-8 w-full mb-10 opacity-80 hover" class="card">
           <h2 class="text-lg text-center text-bold text-purple-900 mb-6 ">Add expense</h2>
-          <form class="grid grid-cols-1 gap-4">
-            <input class="border p-3 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none" type="date">
-            <input class="border p-3 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none"type="text" placeholder="item">
-            <input class="border p-3 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none"type="number"placeholder="Amount">
+          <form id="expenseform" class="grid grid-cols-1 gap-4">
+            <input id="date" class="border p-3 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none" type="date">
+            <input id="item" class="border p-3 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none"type="text" placeholder="item">
+            <input id="amount" class="border p-3 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none"type="number"placeholder="Amount">
             <select class="border p-3 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none">
-                <option>food</option>
-                <option>travel</option>
-                <option>shopping</option>
-                <option>other</option>
+                <option value="">food</option>
+                <option value="">travel</option>
+                <option value="">shopping</option>
+                <option value="">other</option>
             </select>
             <button class=" bg-gradient-to-br from-purple-500 via-pink-400 to-orange-300 border p-3 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none shadow-xl text-bold text-white fonts-sans"type="submit">Add expense</button>
           </form>
@@ -33,12 +33,13 @@
                     <tr class="bg-gradient-to-br from-pink-500 to-organge-500 text-white">
                         <th class="p-3 text-left">date</th>
                         <th class="p-3 text-left">item</th>
+                        <th class="p-3 text-left">amount</th>
                         <th class="p-3 text-left">category</th>
-                        <th class="p-3 text-left">action</th>
                     </tr>
                 </thread>
+
                    
-                <tbody>
+                <tbody id="expenselist">
                    <tr class="border-b hover:bg-purple-50 transtion">
                     <td class="p-3">2025-08-10</td>
                     <td class="p-3">Sample Item</td>
@@ -49,5 +50,45 @@
                 </tbody>
             </table>
         </section>
+
+        <div>
+            <script>
+                 const form = document.getElementById("expenseform")
+                 const expenselist = document.getElementById("expenselist")
+                 const expensecount = document.getElementById("expensecount")
+                 const count = 0;
+
+                 form.addEventListener("submit",function(e){
+                    e.preventDefault
+                    const Date = document.getElementById("Date").value;
+                    const Item = document.getElementById("Item").value;
+                    const Category = document.getElementById("Category").value;
+                    const Amount = document.getElementById("Amount")
+
+                 })
+
+                 if(!Date || !Item || !Amount || !Category )
+
+                 const tr = document.createElement("tr")
+                 tr.className = "border-b hover:bg-purple-500 transition"
+
+                 tr.innerHTML = `
+                 <td class="p-3">${date}</td>
+                 <td class="p-3">${item}</td>
+                 <td class="p-3">${amount}</td>
+                 <td class="p-3">${category}</td>
+                  <button id="delete" class="bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 transition"Delete</button>
+                    </td>`
+
+                    expenselist.appendChild(tr)
+
+                    count++
+                    expensecount.textContent = count
+
+                    form.reset()
+                 
+            </script>
+
+        </div>
     </body>
 </html>
